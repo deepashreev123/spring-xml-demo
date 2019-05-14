@@ -1,35 +1,41 @@
 <?xml version = "1.0" encoding = "UTF-8" ?>
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id ="movie" class="com.stackroute.springapplication.beans.Movie" scope="prototype">
 
-        <constructor-arg name="movieName" value="The Avengers" />
+    <bean id="movie" class="com.stackroute.springapplication.beans.Movie">
 
-        <constructor-arg name="actorNAme" value="Robert Jr" />
-
-        <constructor-arg name="genre" value="Action" />
-
-
-    </bean>
-
-    <bean id = "movie1" class="com.stackroute.springapplication.beans.Movie" scope="prototype">
-        <property name="movieName" value="URI"/>
-        <property name="actorNAme" value="Vicky Kaushal"/>
-        <property name="genre" value="Action"/>
+        <property name="actor">
+            <ref bean="actor"></ref>
+        </property>
 
 
     </bean>
 
-    <bean id = "actor" class="com.stackroute.springapplication.beans.Actor" scope="prototype">
+
+    <bean id="actor" class="com.stackroute.springapplication.beans.Actor">
         <property name="actorName" value="yash"/>
         <property name="gender" value="male"/>
         <property name="age" value="40"/>
 
+    </bean>
+
+    <bean id="movie1" class="com.stackroute.springapplication.beans.Movie">
+
+        <constructor-arg ref="actor"/>
+
 
     </bean>
+
+    <bean id="actor1" class="com.stackroute.springapplication.beans.Actor">
+        <property name="actorName" value="yash"/>
+        <property name="gender" value="male"/>
+        <property name="age" value="40"/>
+    </bean>
+
+
 </beans>
