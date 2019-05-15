@@ -5,6 +5,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import com.stackroute.springapplication.PostProcessor;
+
 
 public class Movie implements ApplicationContextAware
 {
@@ -52,6 +54,7 @@ public class Movie implements ApplicationContextAware
     public void setActor(Actor actor) {
         this.actor = actor;
     }
+
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println(applicationContext);

@@ -1,12 +1,8 @@
 package com.stackroute.springapplication;
 import com.stackroute.springapplication.beans.Movie;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.Resource;
-import com.stackroute.springapplication.LifeCycle;
-
+import com.stackroute.springapplication.PostProcessor;
 public class Main {
     public static void main(String[] args) {
 
