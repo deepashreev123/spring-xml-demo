@@ -43,5 +43,7 @@
 
     </bean>
 
+    <bean id="postprocessor" class="com.stackroute.springapplication.PostProcessorDemo"></bean>
+
 
 </beans>
