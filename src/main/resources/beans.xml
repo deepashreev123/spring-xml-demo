@@ -7,21 +7,41 @@
 
     <!-- bean definitions here -->
 
-    <bean id="movie" class="com.stackroute.springapplication.beans.Movie">
-
-        <property name="actor">
-            <ref bean="actor"></ref>
-        </property>
-
-
+    <bean id="movie4" autowire="byType" class="com.stackroute.springapplication.beans.Movie">
+        <property name="movieName" value="ABCD"></property>
+        <property name="director" value="REMO"></property>
     </bean>
 
+    <!--    <bean id="Actor" class="com.stackroute.domain.Actor">-->
+    <!--        <property name="name" value="aart"></property>-->
+    <!--        <property name="age" value="26"></property>-->
+    <!--        <property name="gender" value="male"></property>-->
+    <!--    </bean>-->
+
+    <bean id="movie5" autowire="byName" class="com.stackroute.springapplication.beans.Movie">
+        <property name="movieName" value="ABCD"></property>
+        <property name="director" value="REMO"></property>
+    </bean>
 
     <bean id="actor" class="com.stackroute.springapplication.beans.Actor">
-        <property name="actorName" value="yash"/>
-        <property name="gender" value="male"/>
-        <property name="age" value="40"/>
+        <property name="name" value="aarti"></property>
+        <property name="age" value="20"></property>
+        <property name="gender" value="male"></property>
+    </bean>
+
+    <!--    <bean id="movie6" autowire="constructor" class="com.stackroute.domain.Movie">-->
+    <!--        <property name="movieName" value="ABCD"></property>-->
+    <!--        <property name="director" value="REMO"></property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="actor" class="com.stackroute.domain.Actor">-->
+    <!--        <constructor-arg index="0" value="Varun"></constructor-arg>-->
+    <!--        <constructor-arg index="1" value="30"></constructor-arg>-->
+    <!--        <constructor-arg index="2" value="Male"></constructor-arg>-->
+    <!--    </bean>-->
+    <bean id="LifeCycle" class="com.stackroute.springapplication.LifeCycle" init-method="customInit" destroy-method="customDestroy">
 
     </bean>
+
 
 </beans>

@@ -1,34 +1,54 @@
 package com.stackroute.springapplication.beans;
 
-public class Actor {
-    private String actorName;
-    private String gender;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Actor implements BeanNameAware, BeanFactoryAware
+{
+
+    private String name;
     private int age;
-
-    public Actor() {
-
-    }
-
-    public Actor(String actorName, String gender, int age) {
-        this.actorName = actorName;
-        this.gender = gender;
+    public Actor(String name, int age, String gender) {
+        this.name = name;
         this.age = age;
-    }
-
-    public String getActorName() {
-        return actorName;
-    }
-
-    public void setActorName(String actorName) {
-        this.actorName = actorName;
+        this.gender = gender;
     }
 
     public String getGender() {
         return gender;
     }
 
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
+
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    private String gender;
+    public Actor(){}
+
+    public Actor(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -39,16 +59,11 @@ public class Actor {
         this.age = age;
     }
 
-    public String welcomeMsg() {
-        return "Welcome !!!";
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("In BeanFactoryAware "+beanFactory );
     }
 
-    @Override
-    public String toString() {
-        return "actor Information " +
-                "actorName='" + actorName + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age='" + age + '\'' +
-                '}';
+    public void setBeanName(String s) {
+        System.out.println("in BeanNameAware "+s);
     }
 }
